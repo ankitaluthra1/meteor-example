@@ -1,6 +1,5 @@
 import { Template } from 'meteor/templating';
-import './view.html';
-import {Transactions} from "../api/database";
+import {Transactions} from "../../config/database";
 
 Template.body.events({
     'submit .new-transaction'(event) {
@@ -10,15 +9,15 @@ Template.body.events({
 
         // Get value from form element
         const target = event.target;
-        const holding = target.holding.value;
+        const name = target.name.value;
         const quantity = target.quantity.value;
         const buyer = target.buyer.value;
         const seller = target.seller.value;
-        const price = target.seller.value;
+        const price = target.price.value;
 
         // Insert a task into the collection
         Transactions.insert({
-            holding,
+            name,
             quantity,
             buyer,
             seller,

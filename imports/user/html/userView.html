@@ -3,9 +3,13 @@
 </head>
 
 <body>
+{{#if isAdminUser}}
+{{> adminView}}
+{{/if}}
+{{#if isLoggedInUser}}
 <div class="container">
     <header>
-        <h1>team1</h1>
+        <h1>{{currentUser.username}}</h1>
     </header>
     <div>
         <table>
@@ -13,9 +17,9 @@
                 <th>Holding</th>
                 <th>Qunatity</th>
             </tr>
-                {{#each holdings}}
-                    {{> holding}}
-                {{/each}}
+            {{#each holdings}}
+            {{> holding}}
+            {{/each}}
         </table>
     </div>
 
@@ -28,12 +32,13 @@
                 <th>Seller</th>
             </tr>
             {{#each transactions}}
-                {{> transaction}}
+            {{> transaction}}
             {{/each}}
         </table>
     </div>
 
 </div>
+{{/if}}
 </body>
 
 <template name="holding">
