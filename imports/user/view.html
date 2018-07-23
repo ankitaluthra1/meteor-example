@@ -1,0 +1,53 @@
+<head>
+    <title>meteor-portfolio</title>
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <h1>team1</h1>
+    </header>
+    <div>
+        <table>
+            <tr>
+                <th>Holding</th>
+                <th>Qunatity</th>
+            </tr>
+                {{#each holdings}}
+                    {{> holding}}
+                {{/each}}
+        </table>
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th>Holding</th>
+                <th>Qunatity</th>
+                <th>Price</th>
+                <th>Seller</th>
+            </tr>
+            {{#each transactions}}
+                {{> transaction}}
+            {{/each}}
+        </table>
+    </div>
+
+</div>
+</body>
+
+<template name="holding">
+    <tr>
+        <td>{{name}}</td>
+        <td>{{quantity}}</td>
+    </tr>
+</template>
+
+<template name="transaction">
+    <tr>
+        <td>{{name}}</td>
+        <td>{{quantity}}</td>
+        <td>{{price}}</td>
+        <td>{{seller}}</td>
+    </tr>
+</template>
